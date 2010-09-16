@@ -1,0 +1,11 @@
+OTS_0.4/Bin
+OTS_0.4/obj
+OTS_0.4.Web/bin
+OTS_0.4.Web/obj
+OTS_0.4.Web/ClientBin
+OTS_0.4DB/bin
+OTS_0.4DB/obj
+*.user
+*.suo
+_ReSharper.*
+*.sln.cache

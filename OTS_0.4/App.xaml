@@ -1,0 +1,23 @@
+﻿<Application
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:app="clr-namespace:OTS_0._4"
+  xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.PartsSampleData" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"   
+  x:Class="OTS_0._4.App"
+  Startup="Application_Startup"
+  UnhandledException="Application_UnhandledException">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Assets/Styles.xaml"/> 
+                <ResourceDictionary>
+                    <app:ResourceWrapper x:Key="ResourceWrapper" />
+                    <app:NotOperatorValueConverter x:Key="NotOperatorValueConverter" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        	<SampleData:PartsSampleData x:Key="PartsSampleData" d:IsDataSource="True"/>
+        </ResourceDictionary>                
+    </Application.Resources>
+
+</Application>

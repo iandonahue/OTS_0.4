@@ -1,0 +1,7 @@
+﻿<OutOfBrowserSettings ShortName="OTS_0._4 Application" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>OTS_0._4 Application on your desktop; at home, at work or on the go.</OutOfBrowserSettings.Blurb>
+  <OutOfBrowserSettings.WindowSettings>
+    <WindowSettings Title="OTS_0._4 Application" />
+  </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.Icons />
+</OutOfBrowserSettings>

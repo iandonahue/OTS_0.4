@@ -1,0 +1,23 @@
+﻿<navigation:Page 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" x:Class="OTS_0._4.Views.Page1"
+           mc:Ignorable="d"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Page1 Page">
+    <Grid x:Name="LayoutRoot" >
+        <sdk:DataGrid AutoGenerateColumns="false" HorizontalAlignment="Left" x:Name="Parts" VerticalAlignment="Top" DataContext="{Binding}"  RowDetailsVisibilityMode="Visible" Background="#FF9E9B9B" ItemsSource="{Binding Parts, Source={StaticResource PartsSampleData}}" >
+        	<sdk:DataGrid.Columns>
+        		<sdk:DataGridTextColumn Binding="{Binding Part_Name}" Header="Part Name" DisplayIndex="0" Width="200"/>
+        		<sdk:DataGridTextColumn Binding="{Binding Manufacturer}" Header="Manufacturer" DisplayIndex="1" Width="200"/>
+        		<sdk:DataGridTextColumn Binding="{Binding Manufacturer_SKU}" Header="Manufacturer SKU" Width="SizeToHeader"/>
+        		<sdk:DataGridTextColumn Binding="{Binding Stock_Quantity}" Header="Stock Quantity" Width="SizeToHeader"/>
+        		<sdk:DataGridTextColumn Binding="{Binding Reorder_Threshold}" Header="Reorder Threshold" Width="SizeToHeader"/>
+        		<sdk:DataGridTextColumn Binding="{Binding Note}" Header="Note" Width="*"/>
+        	</sdk:DataGrid.Columns>
+        </sdk:DataGrid>
+    </Grid>
+</navigation:Page>

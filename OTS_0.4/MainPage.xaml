@@ -1,0 +1,102 @@
+﻿<UserControl 
+  x:Class="OTS_0._4.MainPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+  xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+  xmlns:dataControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+  mc:Ignorable="d" d:DesignHeight="480" d:DesignWidth="640">
+
+    <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36" />
+            <RowDefinition Height="416*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="115" />
+            <ColumnDefinition Width="550*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Style="{StaticResource NavigationOuterGridStyle}" 
+          Grid.ColumnSpan="2" 
+          Grid.RowSpan="2">
+            <Grid x:Name="NavigationGrid" 
+            Style="{StaticResource NavigationGridStyle}" Height="36">
+
+                <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}">
+                    <StackPanel x:Name="BrandingStackPanel" 
+                      Style="{StaticResource BrandingStackPanelStyle}">
+
+                        <ContentControl Style="{StaticResource LogoIcon}"/>
+                        <TextBlock x:Name="ApplicationNameTextBlock" 
+                       Style="{StaticResource ApplicationNameStyle}" 
+                               Text="{Binding ApplicationStrings.ApplicationName, 
+Source={StaticResource ResourceWrapper}}" FontFamily="Kalinga" FontSize="16"/>
+
+                    </StackPanel>
+                </Border>
+
+                <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
+                    <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
+
+                        <HyperlinkButton x:Name="Link1" 
+                                         Style="{StaticResource LinkStyle}"
+                                         NavigateUri="/Home"
+                                         TargetName="ContentFrame" 
+                                         Content="{Binding Path=ApplicationStrings.HomePageTitle, Source={StaticResource ResourceWrapper}}"/>
+
+                        <Rectangle x:Name="Divider1" 
+                                   Style="{StaticResource DividerStyle}"/>
+
+                        <HyperlinkButton x:Name="Link2" 
+                                         Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/About" TargetName="ContentFrame" Content="{Binding Path=ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>
+                       
+                        <HyperlinkButton x:Name="LogOut"
+                                         Content="{Binding Path=ApplicationStrings.HomePageTitle, Source={StaticResource ResourceWrapper}}" 
+                                         NavigateUri="/Home"                                                         
+                                         Style="{StaticResource LinkStyle}"                                         
+                                         TargetName="ContentFrame" Click="LogOut_Click" />
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+
+            <Border x:Name="loginContainer" Style="{StaticResource LoginContainerStyle}">
+                <!-- LoginStatus will be added here in code behind. This is required for the designer view to work -->
+            </Border>
+
+        </Grid>
+
+        <Border x:Name="Sidebar"
+                Grid.Row="1"
+                Grid.Column="0" >
+        	<Border.Background>
+        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        			<GradientStop Color="#CC5A0101" Offset="0"/>
+        			<GradientStop Color="White" Offset="1"/>
+        		</LinearGradientBrush>
+        	</Border.Background>
+        </Border>
+
+        <Border x:Name="ContentBorder" 
+            Style="{StaticResource ContentBorderStyle}" 
+                Grid.Column="1"  
+                Grid.Row="1">
+            <navigation:Frame x:Name="ContentFrame" 
+                              Style="{StaticResource ContentFrameStyle}" 
+                              Source="/Home" Navigated="ContentFrame_Navigated" 
+                              NavigationFailed="ContentFrame_NavigationFailed">
+                <navigation:Frame.UriMapper>
+                    <uriMapper:UriMapper>
+                        <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>
+                    </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+            </navigation:Frame>
+        </Border>
+
+    </Grid>
+
+</UserControl>
