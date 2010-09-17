@@ -90,6 +90,7 @@ namespace OTS_0._4.Web
     using System.ServiceModel.DomainServices.Client;
     using System.ServiceModel.DomainServices.Client.ApplicationServices;
     using System.ServiceModel.Web;
+    using OTS_0._4.Web.Resources;
     
     
     /// <summary>
@@ -358,14 +359,9 @@ namespace OTS_0._4.Web
         /// <summary>
         /// Gets or sets the 'Answer' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
         [DataMember()]
-        [Display(Name="SecurityAnswerLabel", Order=6, ResourceType=typeof(OTS_0._4.Web.Resources.RegistrationDataResources))]
+        [Display(Name="SecurityAnswerLabel", Order=6, ResourceType=typeof(RegistrationDataResources))]
+        [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         public string Answer
         {
             get
@@ -389,20 +385,13 @@ namespace OTS_0._4.Web
         /// <summary>
         /// Gets or sets the 'Email' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references a property 'ValidationErrorInvalidEmail' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RegularExpressionAttribute("^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessageResourceName = "ValidationErrorInvalidEmail", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
         [DataMember()]
-        [Display(Name="EmailLabel", Order=2, ResourceType=typeof(OTS_0._4.Web.Resources.RegistrationDataResources))]
+        [Display(Name="EmailLabel", Order=2, ResourceType=typeof(RegistrationDataResources))]
         [Editable(false, AllowInitialValue=true)]
         [Key()]
+        [RegularExpression("^([\\w-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([\\w-]+\\.)+))([a-zA-Z]{2,4" +
+            "}|[0-9]{1,3})(\\]?)$", ErrorMessageResourceName="ValidationErrorInvalidEmail", ErrorMessageResourceType=typeof(ValidationErrorResources))]
+        [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         [RoundtripOriginal()]
         public string Email
         {
@@ -426,14 +415,9 @@ namespace OTS_0._4.Web
         /// <summary>
         /// Gets or sets the 'FriendlyName' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references a property 'ValidationErrorBadFriendlyNameLength' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [StringLengthAttribute(255, ErrorMessageResourceName = "ValidationErrorBadFriendlyNameLength", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
         [DataMember()]
-        [Display(Description="FriendlyNameDescription", Name="FriendlyNameLabel", Order=1, ResourceType=typeof(OTS_0._4.Web.Resources.RegistrationDataResources))]
+        [Display(Description="FriendlyNameDescription", Name="FriendlyNameLabel", Order=1, ResourceType=typeof(RegistrationDataResources))]
+        [StringLength(255, ErrorMessageResourceName="ValidationErrorBadFriendlyNameLength", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         public string FriendlyName
         {
             get
@@ -457,14 +441,9 @@ namespace OTS_0._4.Web
         /// <summary>
         /// Gets or sets the 'Question' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
         [DataMember()]
-        [Display(Name="SecurityQuestionLabel", Order=5, ResourceType=typeof(OTS_0._4.Web.Resources.RegistrationDataResources))]
+        [Display(Name="SecurityQuestionLabel", Order=5, ResourceType=typeof(RegistrationDataResources))]
+        [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         public string Question
         {
             get
@@ -488,25 +467,14 @@ namespace OTS_0._4.Web
         /// <summary>
         /// Gets or sets the 'UserName' value.
         /// </summary>
-        // Unable to generate the following attribute(s) due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references a property 'ValidationErrorInvalidUserName' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RegularExpressionAttribute("^[a-zA-Z0-9_]*$", ErrorMessageResourceName = "ValidationErrorInvalidUserName", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references a property 'ValidationErrorBadUserNameLength' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [StringLengthAttribute(255, ErrorMessageResourceName = "ValidationErrorBadUserNameLength", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources), MinimumLength = 4)]
-        // 
         [DataMember()]
-        [Display(Name="UserNameLabel", Order=0, ResourceType=typeof(OTS_0._4.Web.Resources.RegistrationDataResources))]
+        [Display(Name="UserNameLabel", Order=0, ResourceType=typeof(RegistrationDataResources))]
         [Editable(false, AllowInitialValue=true)]
         [Key()]
+        [RegularExpression("^[a-zA-Z0-9_]*$", ErrorMessageResourceName="ValidationErrorInvalidUserName", ErrorMessageResourceType=typeof(ValidationErrorResources))]
+        [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))]
         [RoundtripOriginal()]
+        [StringLength(255, ErrorMessageResourceName="ValidationErrorBadUserNameLength", ErrorMessageResourceType=typeof(ValidationErrorResources), MinimumLength=4)]
         public string UserName
         {
             get
@@ -793,21 +761,7 @@ namespace OTS_0._4.Web
         /// <param name="callback">Callback to invoke when the operation completes.</param>
         /// <param name="userState">Value to pass to the callback.  It can be <c>null</c>.</param>
         /// <returns>An operation instance that can be used to manage the asynchronous request.</returns>
-        // Unable to generate the following attribute(s) for parameter 'password' due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references a property 'ValidationErrorBadPasswordStrength' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RegularExpressionAttribute("^.*[^a-zA-Z0-9].*$", ErrorMessageResourceName = "ValidationErrorBadPasswordStrength", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references a property 'ValidationErrorBadPasswordLength' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [StringLengthAttribute(50, ErrorMessageResourceName = "ValidationErrorBadPasswordLength", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources), MinimumLength = 7)]
-        // 
-        public InvokeOperation<CreateUserStatus> CreateUser(RegistrationData user, string password, Action<InvokeOperation<CreateUserStatus>> callback, object userState)
+        public InvokeOperation<CreateUserStatus> CreateUser(RegistrationData user, [RegularExpression("^.*[^a-zA-Z0-9].*$", ErrorMessageResourceName="ValidationErrorBadPasswordStrength", ErrorMessageResourceType=typeof(ValidationErrorResources))] [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))] [StringLength(50, ErrorMessageResourceName="ValidationErrorBadPasswordLength", ErrorMessageResourceType=typeof(ValidationErrorResources), MinimumLength=7)] string password, Action<InvokeOperation<CreateUserStatus>> callback, object userState)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("user", user);
@@ -822,21 +776,7 @@ namespace OTS_0._4.Web
         /// <param name="user">The value for the 'user' parameter of this action.</param>
         /// <param name="password">The value for the 'password' parameter of this action.</param>
         /// <returns>An operation instance that can be used to manage the asynchronous request.</returns>
-        // Unable to generate the following attribute(s) for parameter 'password' due to the following error(s):
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RegularExpressionAttribute' references a property 'ValidationErrorBadPasswordStrength' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RegularExpressionAttribute("^.*[^a-zA-Z0-9].*$", ErrorMessageResourceName = "ValidationErrorBadPasswordStrength", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.RequiredAttribute' references a property 'ValidationErrorRequiredField' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [RequiredAttribute(ErrorMessageResourceName = "ValidationErrorRequiredField", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources))]
-        // 
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'. Are you missing an assembly reference?
-        // - The attribute 'System.ComponentModel.DataAnnotations.StringLengthAttribute' references a property 'ValidationErrorBadPasswordLength' on type 'OTS_0._4.Web.Resources.ValidationErrorResources' that is not accessible in the client project 'OTS_0.4.csproj'.
-        // [StringLengthAttribute(50, ErrorMessageResourceName = "ValidationErrorBadPasswordLength", ErrorMessageResourceType = typeof(OTS_0._4.Web.Resources.ValidationErrorResources), MinimumLength = 7)]
-        // 
-        public InvokeOperation<CreateUserStatus> CreateUser(RegistrationData user, string password)
+        public InvokeOperation<CreateUserStatus> CreateUser(RegistrationData user, [RegularExpression("^.*[^a-zA-Z0-9].*$", ErrorMessageResourceName="ValidationErrorBadPasswordStrength", ErrorMessageResourceType=typeof(ValidationErrorResources))] [Required(ErrorMessageResourceName="ValidationErrorRequiredField", ErrorMessageResourceType=typeof(ValidationErrorResources))] [StringLength(50, ErrorMessageResourceName="ValidationErrorBadPasswordLength", ErrorMessageResourceType=typeof(ValidationErrorResources), MinimumLength=7)] string password)
         {
             Dictionary<string, object> parameters = new Dictionary<string, object>();
             parameters.Add("user", user);

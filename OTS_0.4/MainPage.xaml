@@ -7,11 +7,92 @@
   xmlns:dataControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit" 
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
   mc:Ignorable="d" d:DesignHeight="480" d:DesignWidth="640">
+	<UserControl.Resources>
+		<Style x:Key="ButtonStyle1" TargetType="Button">
+			<Setter Property="Background" Value="#FF1F3B53"/>
+			<Setter Property="Foreground" Value="#FF000000"/>
+			<Setter Property="Padding" Value="3"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="BorderBrush">
+				<Setter.Value>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FFA3AEB9" Offset="0"/>
+						<GradientStop Color="#FF8399A9" Offset="0.375"/>
+						<GradientStop Color="#FF718597" Offset="0.375"/>
+						<GradientStop Color="#FF617584" Offset="1"/>
+					</LinearGradientBrush>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Grid>
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="MouseOver">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundAnimation"/>
+											<ColorAnimation Duration="0" To="#F2FFFFFF" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+											<ColorAnimation Duration="0" To="#CCFFFFFF" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+											<ColorAnimation Duration="0" To="#7FFFFFFF" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Pressed">
+										<Storyboard>
+											<ColorAnimation Duration="0" To="#FF6DBDD1" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" Storyboard.TargetName="Background"/>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="BackgroundAnimation"/>
+											<ColorAnimation Duration="0" To="#D8FFFFFF" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+											<ColorAnimation Duration="0" To="#C6FFFFFF" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[1].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+											<ColorAnimation Duration="0" To="#8CFFFFFF" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[2].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+											<ColorAnimation Duration="0" To="#3FFFFFFF" Storyboard.TargetProperty="(Rectangle.Fill).(GradientBrush.GradientStops)[3].(GradientStop.Color)" Storyboard.TargetName="BackgroundGradient"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Disabled">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To=".55" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="DisabledVisualElement"/>
+										</Storyboard>
+									</VisualState>
+								</VisualStateGroup>
+								<VisualStateGroup x:Name="FocusStates">
+									<VisualState x:Name="Focused">
+										<Storyboard>
+											<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="FocusVisualElement"/>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Unfocused"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Border x:Name="Background" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="White" CornerRadius="3">
+								<Grid Background="{TemplateBinding Background}" Margin="1">
+									<Border x:Name="BackgroundAnimation" Background="#FF448DCA" Opacity="0"/>
+									<Rectangle x:Name="BackgroundGradient">
+										<Rectangle.Fill>
+											<LinearGradientBrush EndPoint=".7,1" StartPoint=".7,0">
+												<GradientStop Color="#FFFFFFFF" Offset="0"/>
+												<GradientStop Color="#F9FFFFFF" Offset="0.375"/>
+												<GradientStop Color="#E5FFFFFF" Offset="0.625"/>
+												<GradientStop Color="#C6FFFFFF" Offset="1"/>
+											</LinearGradientBrush>
+										</Rectangle.Fill>
+									</Rectangle>
+								</Grid>
+							</Border>
+							<ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+							<Rectangle x:Name="DisabledVisualElement" Fill="#FFFFFFFF" IsHitTestVisible="false" Opacity="0" RadiusY="3" RadiusX="3"/>
+							<Rectangle x:Name="FocusVisualElement" IsHitTestVisible="false" Margin="1" Opacity="0" RadiusY="2" RadiusX="2" Stroke="#FF6DBDD1" StrokeThickness="1"/>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
 
     <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
         <Grid.RowDefinitions>
             <RowDefinition Height="36" />
-            <RowDefinition Height="416*" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="0.931*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="115" />
@@ -20,7 +101,7 @@
 
         <Grid Style="{StaticResource NavigationOuterGridStyle}" 
           Grid.ColumnSpan="2" 
-          Grid.RowSpan="2">
+          Grid.RowSpan="3">
             <Grid x:Name="NavigationGrid" 
             Style="{StaticResource NavigationGridStyle}" Height="36">
 
@@ -51,13 +132,11 @@ Source={StaticResource ResourceWrapper}}" FontFamily="Kalinga" FontSize="16"/>
 
                         <HyperlinkButton x:Name="Link2" 
                                          Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/About" TargetName="ContentFrame" Content="{Binding Path=ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>
+                                     NavigateUri="/About" 
+                                         TargetName="ContentFrame" 
+                                         Content="{Binding Path=ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>
                        
-                        <HyperlinkButton x:Name="LogOut"
-                                         Content="{Binding Path=ApplicationStrings.HomePageTitle, Source={StaticResource ResourceWrapper}}" 
-                                         NavigateUri="/Home"                                                         
-                                         Style="{StaticResource LinkStyle}"                                         
-                                         TargetName="ContentFrame" Click="LogOut_Click" />
+                       
                     </StackPanel>
                 </Border>
 
@@ -70,8 +149,7 @@ Source={StaticResource ResourceWrapper}}" FontFamily="Kalinga" FontSize="16"/>
         </Grid>
 
         <Border x:Name="Sidebar"
-                Grid.Row="1"
-                Grid.Column="0" >
+                Grid.Row="1" Grid.RowSpan="2">
         	<Border.Background>
         		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
         			<GradientStop Color="#CC5A0101" Offset="0"/>
@@ -79,11 +157,39 @@ Source={StaticResource ResourceWrapper}}" FontFamily="Kalinga" FontSize="16"/>
         		</LinearGradientBrush>
         	</Border.Background>
         </Border>
+        
+        <Border x:Name="TabsBorder" Grid.Row="1" Grid.Column="1" BorderBrush="#FF8A0303" BorderThickness="0,0,0,1" Height="30">
+         	<Border.Background>
+        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        			<GradientStop Color="#668A0303" Offset="0"/>
+        			<GradientStop Color="White" Offset="1"/>
+        		</LinearGradientBrush>
+        	</Border.Background>
+        	<StackPanel x:Name="TabsStackPanel" Orientation="Horizontal" >
+        		<HyperlinkButton x:Name="TabLinkParts" 
+                                         Style="{StaticResource TabsButton}"
+                                         NavigateUri="/Parts"
+                                         TargetName="ContentFrame" 
+                                         
+                                          Content="{Binding Path=ApplicationStrings.PartsPageTitle, Source={StaticResource ResourceWrapper}}"                                                     Foreground="#FF8A1E1E" 
+                                          ClickMode="Press" VerticalAlignment="Bottom" Width="120" Height="30" FontSize="18.667"/>
+        		<HyperlinkButton x:Name="TabLinkVendors" 
+        			Style="{StaticResource TabsButton}"
+        			NavigateUri="/Vendors"
+        			TargetName="ContentFrame" 
+                                         
+        			Content="{Binding ApplicationStrings.VendorsPageTitle, Source={StaticResource ResourceWrapper}}"                                                     Foreground="#FF8A1E1E" 
+        			ClickMode="Press" VerticalAlignment="Bottom" Width="120" Height="30" FontSize="18.667"/>
+										      	
+			</StackPanel>
+            
+            
+        </Border>
 
         <Border x:Name="ContentBorder" 
             Style="{StaticResource ContentBorderStyle}" 
                 Grid.Column="1"  
-                Grid.Row="1">
+                Grid.Row="2" Grid.RowSpan="2">
             <navigation:Frame x:Name="ContentFrame" 
                               Style="{StaticResource ContentFrameStyle}" 
                               Source="/Home" Navigated="ContentFrame_Navigated" 

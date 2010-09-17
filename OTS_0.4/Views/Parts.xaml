@@ -13,7 +13,7 @@
         	<sdk:DataGrid.Columns>
         		<sdk:DataGridTextColumn Binding="{Binding Part_Name}" Header="Part Name" DisplayIndex="0" Width="200"/>
         		<sdk:DataGridTextColumn Binding="{Binding Manufacturer}" Header="Manufacturer" DisplayIndex="1" Width="200"/>
-        		<sdk:DataGridTextColumn Binding="{Binding Manufacturer_SKU}" Header="Manufacturer SKU" Width="SizeToHeader"/>
+        		<sdk:DataGridTextColumn Binding="{Binding Manufacturer_SKU}" Header="Manufacturer SKU" Width="Auto"/>
         		<sdk:DataGridTextColumn Binding="{Binding Stock_Quantity}" Header="Stock Quantity" Width="SizeToHeader"/>
         		<sdk:DataGridTextColumn Binding="{Binding Reorder_Threshold}" Header="Reorder Threshold" Width="SizeToHeader"/>
         		<sdk:DataGridTextColumn Binding="{Binding Note}" Header="Note" Width="*"/>

@@ -187,6 +187,15 @@ namespace OTS_0._4 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Parts.
+        /// </summary>
+        public static string PartsPageTitle {
+            get {
+                return ResourceManager.GetString("PartsPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register now.
         /// </summary>
         public static string RegisterNowButton {
@@ -219,6 +228,15 @@ namespace OTS_0._4 {
         public static string RememberMeLabel {
             get {
                 return ResourceManager.GetString("RememberMeLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vendors.
+        /// </summary>
+        public static string VendorsPageTitle {
+            get {
+                return ResourceManager.GetString("VendorsPageTitle", resourceCulture);
             }
         }
         

@@ -178,4 +178,10 @@
     <value>Welcome {0}</value>
     <comment>{0} = User.DisplayName property</comment>
   </data>
+  <data name="PartsPageTitle" xml:space="preserve">
+    <value>Parts</value>
+  </data>
+  <data name="VendorsPageTitle" xml:space="preserve">
+    <value>Vendors</value>
+  </data>
 </root>
