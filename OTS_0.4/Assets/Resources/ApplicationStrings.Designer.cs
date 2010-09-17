@@ -169,6 +169,15 @@ namespace OTS_0._4 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to My Account.
+        /// </summary>
+        public static string MyAccountPageTitle {
+            get {
+                return ResourceManager.GetString("MyAccountPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not registered yet?.
         /// </summary>
         public static string NotRegisteredYetLabel {

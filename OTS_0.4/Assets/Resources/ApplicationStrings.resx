@@ -184,4 +184,7 @@
   <data name="VendorsPageTitle" xml:space="preserve">
     <value>Vendors</value>
   </data>
+  <data name="MyAccountPageTitle" xml:space="preserve">
+    <value>My Account</value>
+  </data>
 </root>

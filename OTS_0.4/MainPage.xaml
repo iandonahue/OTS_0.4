@@ -121,20 +121,32 @@ Source={StaticResource ResourceWrapper}}" FontFamily="Kalinga" FontSize="16"/>
                 <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
                     <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
 
-                        <HyperlinkButton x:Name="Link1" 
+                        <TextBlock x:Name="UserName" TextWrapping="Wrap" Text="ian@jellythink.com" Foreground="#FFF5F2F2" Margin="0,5,10,0"/>
+                        <Rectangle x:Name="Divider1_Copy3" 
+                        	Style="{StaticResource DividerStyle}"/>
+
+                        <HyperlinkButton x:Name="MyAccount" 
                                          Style="{StaticResource LinkStyle}"
-                                         NavigateUri="/Home"
+                                         NavigateUri="/MyAccount"
                                          TargetName="ContentFrame" 
-                                         Content="{Binding Path=ApplicationStrings.HomePageTitle, Source={StaticResource ResourceWrapper}}"/>
+                                         Content="{Binding ApplicationStrings.MyAccountPageTitle, Source={StaticResource ResourceWrapper}}"/>
 
                         <Rectangle x:Name="Divider1" 
                                    Style="{StaticResource DividerStyle}"/>
-
-                        <HyperlinkButton x:Name="Link2" 
-                                         Style="{StaticResource LinkStyle}" 
-                                     NavigateUri="/About" 
-                                         TargetName="ContentFrame" 
-                                         Content="{Binding Path=ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>
+                        <HyperlinkButton x:Name="Home" 
+                        	Style="{StaticResource LinkStyle}"
+                        	NavigateUri="/Home"
+                        	TargetName="ContentFrame" 
+                        	Content="{Binding ApplicationStrings.HomePageTitle, Source={StaticResource ResourceWrapper}}"/>
+                        <Rectangle x:Name="Divider1_Copy1" 
+                        	Style="{StaticResource DividerStyle}"/>
+                        <HyperlinkButton x:Name="SignOut" 
+                        	Style="{StaticResource LinkStyle}" 
+                        	NavigateUri="/About" 
+                        	TargetName="ContentFrame" 
+                        	Content="{Binding ApplicationStrings.AboutPageTitle, Source={StaticResource ResourceWrapper}}"/>
+                        <Rectangle x:Name="Divider1_Copy2" 
+                        	Style="{StaticResource DividerStyle}"/>
                        
                        
                     </StackPanel>
@@ -158,7 +170,7 @@ Source={StaticResource ResourceWrapper}}" FontFamily="Kalinga" FontSize="16"/>
         	</Border.Background>
         </Border>
         
-        <Border x:Name="TabsBorder" Grid.Row="1" Grid.Column="1" BorderBrush="#FF8A0303" BorderThickness="0,0,0,1" Height="30">
+        <Border x:Name="TabsBorder" Grid.Row="1" Grid.Column="1" BorderBrush="#FF8A0303" BorderThickness="0" Height="30" Margin="0">
          	<Border.Background>
         		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
         			<GradientStop Color="#668A0303" Offset="0"/>
@@ -167,23 +179,18 @@ Source={StaticResource ResourceWrapper}}" FontFamily="Kalinga" FontSize="16"/>
         	</Border.Background>
         	<StackPanel x:Name="TabsStackPanel" Orientation="Horizontal" >
         		<HyperlinkButton x:Name="TabLinkParts" 
-                                         Style="{StaticResource TabsButton}"
-                                         NavigateUri="/Parts"
-                                         TargetName="ContentFrame" 
-                                         
-                                          Content="{Binding Path=ApplicationStrings.PartsPageTitle, Source={StaticResource ResourceWrapper}}"                                                     Foreground="#FF8A1E1E" 
-                                          ClickMode="Press" VerticalAlignment="Bottom" Width="120" Height="30" FontSize="18.667"/>
-        		<HyperlinkButton x:Name="TabLinkVendors" 
-        			Style="{StaticResource TabsButton}"
-        			NavigateUri="/Vendors"
-        			TargetName="ContentFrame" 
-                                         
-        			Content="{Binding ApplicationStrings.VendorsPageTitle, Source={StaticResource ResourceWrapper}}"                                                     Foreground="#FF8A1E1E" 
-        			ClickMode="Press" VerticalAlignment="Bottom" Width="120" Height="30" FontSize="18.667"/>
-										      	
+                                 Style="{StaticResource TabsButton}"
+                                 NavigateUri="/Parts"
+                                 TargetName="ContentFrame" 
+                                 Content="Parts"                                     
+                                 Foreground="#FF8A1E1E" />
+        		
+                <HyperlinkButton x:Name="TabLinkVendors" 
+        			             Style="{StaticResource TabsButton}"
+        			             NavigateUri="/Vendors"
+        			             TargetName="ContentFrame" 
+                                 Content="{Binding ApplicationStrings.VendorsPageTitle, Source={StaticResource ResourceWrapper}}"                                                     Foreground="#FF8A1E1E" />										      	
 			</StackPanel>
-            
-            
         </Border>
 
         <Border x:Name="ContentBorder" 
@@ -193,7 +200,7 @@ Source={StaticResource ResourceWrapper}}" FontFamily="Kalinga" FontSize="16"/>
             <navigation:Frame x:Name="ContentFrame" 
                               Style="{StaticResource ContentFrameStyle}" 
                               Source="/Home" Navigated="ContentFrame_Navigated" 
-                              NavigationFailed="ContentFrame_NavigationFailed">
+                              NavigationFailed="ContentFrame_NavigationFailed" Margin="3,3,3,0" Content="(/Home)                                                        ">
                 <navigation:Frame.UriMapper>
                     <uriMapper:UriMapper>
                         <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
@@ -202,6 +209,7 @@ Source={StaticResource ResourceWrapper}}" FontFamily="Kalinga" FontSize="16"/>
                 </navigation:Frame.UriMapper>
             </navigation:Frame>
         </Border>
+        <TextBlock Grid.Column="1" Height="6" Margin="204,-86,317,0" TextWrapping="Wrap" Text="  " VerticalAlignment="Top"/>
 
     </Grid>
 
