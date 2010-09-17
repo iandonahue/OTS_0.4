@@ -187,4 +187,7 @@
   <data name="MyAccountPageTitle" xml:space="preserve">
     <value>My Account</value>
   </data>
+  <data name="SignOutPageTitle" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
 </root>

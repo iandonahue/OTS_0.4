@@ -241,6 +241,15 @@ namespace OTS_0._4 {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Sign Out.
+        /// </summary>
+        public static string SignOutPageTitle {
+            get {
+                return ResourceManager.GetString("SignOutPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vendors.
         /// </summary>
         public static string VendorsPageTitle {

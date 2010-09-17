@@ -53,6 +53,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows" />
@@ -70,7 +71,9 @@
     <Reference Include="System.ServiceModel.DomainServices.Client" />
     <Reference Include="System.ServiceModel.DomainServices.Client.Web" />
     <Reference Include="System.ServiceModel.Web.Extensions" />
+    <Reference Include="System.Windows.Controls.Input" />
     <Reference Include="System.Windows.Data" />
+    <Reference Include="System.Windows.Interactivity" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
     <Reference Include="System.Windows.Controls" />
@@ -154,6 +157,9 @@
     <Compile Include="Views\Parts.xaml.cs">
       <DependentUpon>Parts.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SignOut.xaml.cs">
+      <DependentUpon>SignOut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Vendors.xaml.cs">
       <DependentUpon>Vendors.xaml</DependentUpon>
     </Compile>
@@ -220,6 +226,10 @@
     <Page Include="Views\Parts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SignOut.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Vendors.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>

@@ -9,7 +9,9 @@
            d:DesignWidth="640" d:DesignHeight="480"
            Title="Page1 Page">
     <Grid x:Name="LayoutRoot" >
-        <sdk:DataGrid AutoGenerateColumns="false" HorizontalAlignment="Left" x:Name="Parts" VerticalAlignment="Top" DataContext="{Binding}"  RowDetailsVisibilityMode="Visible" Background="#FF9E9B9B" ItemsSource="{Binding Parts, Source={StaticResource PartsSampleData}}" >
+        <sdk:AutoCompleteBox Margin="103,8,220,0" VerticalAlignment="Top" Height="24" Width="225" HorizontalAlignment="Left"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Margin="12,12,0,0"><Run Text="Search Parts:"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+        <sdk:DataGrid AutoGenerateColumns="false" HorizontalAlignment="Left" x:Name="Parts" VerticalAlignment="Top" DataContext="{Binding}"  RowDetailsVisibilityMode="Visible" Background="#FF9E9B9B" ItemsSource="{Binding Parts, Source={StaticResource PartsSampleData}}" Margin="0,40,0,0" >
         	<sdk:DataGrid.Columns>
         		<sdk:DataGridTextColumn Binding="{Binding Part_Name}" Header="Part Name" DisplayIndex="0" Width="200"/>
         		<sdk:DataGridTextColumn Binding="{Binding Manufacturer}" Header="Manufacturer" DisplayIndex="1" Width="200"/>
